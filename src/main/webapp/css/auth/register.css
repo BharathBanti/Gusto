@@ -1,0 +1,18 @@
+@import url('login.css');
+textarea{
+    width:100%;
+    padding:14px;
+    background:var(--bg-secondary);
+    border:1px solid var(--border-color);
+    border-radius:12px;
+    color:var(--text-primary);
+    outline:none;
+    resize:vertical;
+    transition:.3s;
+}
+textarea:focus{
+    border-color:var(--accent);
+}
+.auth-container{
+    max-width: 600px;
+}

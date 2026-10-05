@@ -1,0 +1,473 @@
+/* =====================================================
+   ROOT
+===================================================== */
+:root {
+    /* Final FDA Dark Theme */
+    --bg-primary: #0f1115;
+    --bg-secondary: #151922;
+    --bg-card: #181c23;
+    --bg-card-hover: #20252e;
+    --border-color: #2b313c;
+
+    --text-primary: #f5f7fa;
+    --text-secondary: #a6adb8;
+    --text-muted: #7f8793;
+
+    --accent-color: #ff6b35;
+    --accent-hover: #ff814f;
+
+    --success: #27c46b;
+    --danger: #ff6b6b;
+
+    --radius-lg: 20px;
+    --radius-md: 14px;
+
+    --shadow:
+            0 12px 35px rgba(0, 0, 0, 0.30);
+}
+
+.gusto-info-page {
+    min-height: calc(100vh - 70px);
+    background: var(--bg-primary);
+    color: var(--text-primary);
+    overflow: hidden;
+}
+.about-page {
+    padding: 0 40px 60px;
+}
+.about-hero {
+    max-width: 1280px;
+    min-height: 610px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+    position: relative;
+}
+.about-hero-content {
+    position: relative;
+    z-index: 2;
+}
+.about-eyebrow,
+.section-eyebrow {
+    display: inline-block;
+    color: var(--accent-color);
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    margin-bottom: 18px;
+}
+.about-hero h1 {
+    margin: 0;
+    font-size: clamp(48px, 6vw, 78px);
+    line-height: 1.02;
+    letter-spacing: -3px;
+    font-weight: 800;
+}
+.about-hero h1 span {
+    color: var(--accent-color);
+}
+.about-hero p {
+    max-width: 570px;
+    margin: 28px 0 32px;
+    color: var(--text-secondary);
+    font-size: 17px;
+    line-height: 1.8;
+}
+.about-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 20px;
+    border-radius: 9px;
+    background: var(--accent-color);
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, opacity 0.25s ease;
+}
+.about-primary-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,0,0,0.25);
+    opacity: 0.92;
+}
+.about-hero-visual {
+    min-height: 460px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.hero-glow {
+    width: 330px;
+    height: 330px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    opacity: 0.08;
+    filter: blur(35px);
+    position: absolute;
+}
+.hero-food-icon {
+    width: 240px;
+    height: 240px;
+    border: 1px solid var(--border-color);
+    border-radius: 50%;
+    background: var(--bg-card);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.3);
+}
+.hero-food-icon i {
+    font-size: 90px;
+    color: var(--accent-color);
+}
+.floating-card {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 13px 16px;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: rgba(22,26,32,0.92);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 18px 40px rgba(0,0,0,0.25);
+}
+.floating-card i {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 9px;
+    background: var(--bg-secondary);
+    color: var(--accent-color);
+}
+.floating-card div {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+}
+.floating-card strong {
+    color: var(--text-primary);
+    font-size: 13px;
+}
+.floating-card span {
+    color: var(--text-secondary);
+    font-size: 11px;
+}
+.floating-card-one {
+    top: 65px;
+    left: 0;
+}
+.floating-card-two {
+    right: 0;
+    bottom: 65px;
+}
+.info-section {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 100px 0;
+}
+.section-heading {
+    max-width: 720px;
+    margin-bottom: 55px;
+}
+.section-heading.centered {
+    max-width: 720px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+.section-heading h2,
+.mission-content h2,
+.about-cta h2 {
+    margin: 0;
+    color: var(--text-primary);
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.15;
+    letter-spacing: -1.5px;
+}
+.section-heading p,
+.mission-content p,
+.about-cta p {
+    margin: 20px 0 0;
+    color: var(--text-secondary);
+    font-size: 16px;
+    line-height: 1.8;
+}
+.story-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+.story-card,
+.why-card,
+.step-card {
+    padding: 30px;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background: var(--bg-card);
+    transition: transform 0.25s ease, border-color 0.25s ease, background 0.25s ease;
+}
+.story-card:hover,
+.why-card:hover,
+.step-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--accent-color);
+    background: var(--bg-card-hover);
+}
+.story-icon,
+.why-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 24px;
+    border-radius: 11px;
+    background: var(--bg-secondary);
+    color: var(--accent-color);
+    font-size: 19px;
+}
+.story-card h3,
+.why-card h3,
+.step-card h3 {
+    margin: 0 0 10px;
+    color: var(--text-primary);
+    font-size: 18px;
+}
+.story-card p,
+.why-card p,
+.step-card p {
+    margin: 0;
+    color: var(--text-secondary);
+    font-size: 14px;
+    line-height: 1.7;
+}
+.about-mission {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    align-items: center;
+    gap: 100px;
+}
+.mission-visual {
+    min-height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    background: var(--bg-secondary);
+    position: relative;
+    overflow: hidden;
+}
+.mission-visual::before,
+.mission-visual::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid var(--border-color);
+}
+.mission-visual::before {
+    width: 310px;
+    height: 310px;
+}
+.mission-visual::after {
+    width: 210px;
+    height: 210px;
+}
+.mission-icon {
+    width: 130px;
+    height: 130px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.3);
+}
+.mission-icon i {
+    color: var(--accent-color);
+    font-size: 48px;
+}
+.mission-content {
+    max-width: 650px;
+}
+.mission-content p + p {
+    margin-top: 14px;
+}
+.steps-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
+    align-items: center;
+    gap: 14px;
+}
+.step-card {
+    min-height: 270px;
+    position: relative;
+}
+.step-number {
+    position: absolute;
+    top: 22px;
+    right: 24px;
+    color: var(--border-color);
+    font-size: 34px;
+    font-weight: 800;
+}
+.step-icon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 35px;
+    border-radius: 11px;
+    background: var(--bg-secondary);
+    color: var(--accent-color);
+}
+.step-connector {
+    color: var(--border-color);
+    font-size: 14px;
+}
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+.about-cta {
+    margin-bottom: 30px;
+    padding: 90px 60px;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    background: var(--bg-secondary);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+.about-cta::before {
+    content: "";
+    position: absolute;
+    width: 280px;
+    height: 280px;
+    border-radius: 50%;
+    background: var(--accent-color);
+    opacity: 0.05;
+    filter: blur(20px);
+    top: -130px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.cta-content {
+    position: relative;
+    z-index: 1;
+}
+.cta-content p {
+    max-width: 600px;
+    margin: 18px auto 28px;
+}
+@media (max-width: 1100px) {
+    .about-page {
+        padding-left: 25px;
+        padding-right: 25px;
+    }
+    .about-hero {
+        gap: 30px;
+    }
+    .about-mission {
+        gap: 50px;
+    }
+    .steps-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .step-connector {
+        display: none;
+    }
+    .why-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+@media (max-width: 800px) {
+    .about-hero {
+        grid-template-columns: 1fr;
+        min-height: auto;
+        padding: 80px 0;
+        text-align: center;
+    }
+    .about-hero p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .about-hero-visual {
+        min-height: 380px;
+    }
+    .floating-card-one {
+        left: 5%;
+    }
+    .floating-card-two {
+        right: 5%;
+    }
+    .story-content,
+    .about-mission {
+        grid-template-columns: 1fr;
+    }
+    .mission-visual {
+        min-height: 330px;
+    }
+}
+@media (max-width: 600px) {
+    .about-page {
+        padding: 0 16px 40px;
+    }
+    .about-hero {
+        padding: 60px 0;
+    }
+    .about-hero h1 {
+        font-size: 46px;
+        letter-spacing: -2px;
+    }
+    .about-hero-visual {
+        min-height: 330px;
+    }
+    .hero-food-icon {
+        width: 190px;
+        height: 190px;
+    }
+    .hero-food-icon i {
+        font-size: 70px;
+    }
+    .floating-card {
+        padding: 10px 12px;
+    }
+    .floating-card-one {
+        top: 30px;
+        left: 0;
+    }
+    .floating-card-two {
+        right: 0;
+        bottom: 30px;
+    }
+    .info-section {
+        padding: 70px 0;
+    }
+    .section-heading h2,
+    .mission-content h2,
+    .about-cta h2 {
+        font-size: 32px;
+    }
+    .story-content,
+    .steps-container,
+    .why-grid {
+        grid-template-columns: 1fr;
+    }
+    .about-cta {
+        padding: 70px 25px;
+    }
+}

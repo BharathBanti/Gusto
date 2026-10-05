@@ -1,0 +1,144 @@
+:root {
+    --bg-primary: #0b0d10;
+    --bg-secondary: #111418;
+    --bg-card: #161a20;
+    --bg-card-hover: #1b2028;
+    --border-color: #272d36;
+    --text-primary: #f5f7fa;
+    --text-secondary: #a6adb8;
+    --accent: #ff6b35;
+    --accent-hover: #ff814f;
+    --success: #35c77a;
+    --danger: #ff6b6b;
+}
+
+/* Base Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: var(--bg-primary);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Auth Layout */
+.auth-container {
+    width: 100%;
+    max-width: 500px;
+}
+
+.auth-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+}
+
+.brand-section {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.brand-section h1 {
+    color: var(--accent);
+    font-size: 42px;
+    margin-bottom: 10px;
+}
+
+.brand-section p {
+    color: var(--text-secondary);
+}
+
+.brand-section > img{
+    width: 150px;
+    height: 150px;
+}
+
+/* Form Controls */
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--text-primary);
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    color: var(--text-primary);
+    outline: none;
+    transition: 0.3s;
+}
+
+.form-group input:focus {
+    border-color: var(--accent);
+}
+
+/* Buttons & Footer */
+.auth-btn {
+    width: 100%;
+    padding: 14px;
+    border: none;
+    border-radius: 12px;
+    background: var(--accent);
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.auth-btn:hover {
+    background: var(--accent-hover);
+}
+
+.auth-footer {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.auth-footer p {
+    color: var(--text-secondary);
+}
+
+.auth-footer a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* Alert Messages */
+.message {
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.error-message {
+    background: rgba(255, 107, 107, 0.15);
+    color: var(--danger);
+    border: 1px solid rgba(255, 107, 107, 0.3);
+}
+
+.success-message {
+    background: rgba(53, 199, 122, 0.15);
+    color: var(--success);
+    border: 1px solid rgba(53, 199, 122, 0.3);
+}

@@ -1,0 +1,183 @@
+/* ======================================
+   RESET
+====================================== */
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+body{
+    font-family:'Inter',sans-serif;
+    background:#0f1115;
+    color:#f5f7fa;
+}
+a{
+    text-decoration:none;
+}
+.container{
+    width:min(1200px,90%);
+    margin:auto;
+}
+
+/* ======================================
+   NAVBAR
+====================================== */
+.guest-navbar{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(24,28,35,0.85);
+    backdrop-filter:blur(12px);
+    -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid #2b313c;
+}
+.navbar-container{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+.navbar-logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-size:24px;
+    font-weight:800;
+    color:#ff6b35;
+}
+.navbar-logo img{
+    width: 60px;
+    height: 60px;
+}
+#app-name{
+    text-shadow: 0 25px 60px rgba(255,107,53,0.25);
+}
+.navbar-menu{
+    display:flex;
+    gap:30px;
+}
+.navbar-menu a{
+    color:#d6dbe3;
+    font-weight:500;
+    transition:0.2s ease;
+}
+.navbar-menu a:hover, #cartIcon:hover{
+    color:#ff6b35;
+}
+.navbar-actions{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+.cart-wrapper{
+    position: relative;
+    margin-right: 15px;
+}
+#cartCount{
+    position: absolute;
+    top: -10px;
+    right: -15px;
+    font-size: 12px;
+    border-radius: 50%;
+}
+#cartCount:hover{
+    color: #ff6b35;
+}
+#cartIcon{
+    color:#d6dbe3;
+}
+
+/* ======================================
+   BUTTONS
+====================================== */
+.btn{
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    transition:0.2s ease;
+}
+.btn-primary{
+    background:#ff6b35;
+    color:#ffffff;
+}
+.btn-primary:hover{
+    background:#ff814f;
+}
+.btn-outline{
+    border:1px solid #ff6b35;
+    color:#ff6b35;
+    background:transparent;
+}
+.btn-outline:hover{
+    background:rgba(255,107,53,0.12);
+}
+.nav-link{
+    color:#d6dbe3;
+    font-weight:500;
+}
+.nav-link:hover{
+    color:#ff6b35;
+}
+.nav-icon{
+    color:#c5ccd6;
+    font-size:18px;
+    transition:0.2s ease;
+}
+.nav-icon:hover{
+    color:#ff6b35;
+}
+
+/* ======================================
+   FOOTER
+====================================== */
+.guest-footer{
+    margin-top:80px;
+    background:#181c23;
+    color:#f5f7fa;
+    border-top:1px solid #2b313c;
+}
+.footer-container{
+    padding:60px 0;
+    display:grid;
+    grid-template-columns:2fr 1fr 1fr 1fr;
+    gap:40px;
+}
+.footer-brand p{
+    margin-top:15px;
+    color:#9ea6b2;
+    line-height:1.8;
+}
+.footer-links{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+.footer-links h4{
+    margin-bottom:10px;
+    color:#ffffff;
+}
+.footer-links a,
+.footer-links p{
+    color:#a6adb8;
+}
+.footer-links a:hover{
+    color:#ff6b35;
+}
+.footer-bottom{
+    text-align:center;
+    padding:20px;
+    border-top:1px solid #2b313c;
+    color:#8f98a6;
+}
+
+/* ======================================
+   RESPONSIVE
+====================================== */
+@media(max-width:768px){
+    .navbar-menu{
+        display:none;
+    }
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+}
