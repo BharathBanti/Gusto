@@ -1,0 +1,5 @@
+target/
+.git/
+.idea/
+*.sql
+**/db.properties
