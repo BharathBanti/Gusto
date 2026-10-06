@@ -41,4 +41,5 @@ build/
 ### Gusto project ###
 .idea/
 *.sql
+!database/schema.sql
 **/db.properties
