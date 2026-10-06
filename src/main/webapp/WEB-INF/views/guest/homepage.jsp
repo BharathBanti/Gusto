@@ -391,11 +391,10 @@
                                 <i class="fa-solid fa-shield-halved"></i>
                             </div>
                             <h3>
-                                Secure Payments
+                                Easy Ordering
                             </h3>
                             <p>
-                                Your payment information is handled
-                                securely throughout your order.
+                                Simple checkout with cash on delivery.
                             </p>
                         </div>
                         <div class="benefit-card">
