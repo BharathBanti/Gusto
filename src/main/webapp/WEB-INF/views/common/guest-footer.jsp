@@ -28,7 +28,7 @@
         </div>
     </div>
     <div class="footer-bottom">
-        © <%= java.time.LocalDate.now().getYear() %> Gusto. All Rights Reserved.
+        &copy;<%= java.time.LocalDate.now().getYear() %> Gusto. All Rights Reserved.
     </div>
 </footer>
 

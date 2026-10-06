@@ -16,11 +16,10 @@ import java.util.List;
 public class OrderItemDAOImpl implements OrderItemDAO {
 
     @Override
-    public void save(OrderItem orderItem) throws DAOException {
+    public void save(Connection connection, OrderItem orderItem) throws DAOException {
         String sql = "INSERT INTO OrderItem (OrderID, MenuID, Quantity, ItemTotal) VALUES (?, ?, ?, ?)";
 
-        try (Connection conn = DBConnectionUtil.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setInt(1, orderItem.getOrderId());
             ps.setInt(2, orderItem.getMenuId());

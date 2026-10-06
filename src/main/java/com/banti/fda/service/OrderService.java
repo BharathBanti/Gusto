@@ -5,13 +5,14 @@ import com.banti.fda.daoImpl.OrderDAOImpl;
 import com.banti.fda.exception.DAOException;
 import com.banti.fda.model.Order;
 
+import java.sql.Connection;
 import java.util.List;
 
 public class OrderService {
     private OrderDAO orderDao = new OrderDAOImpl();
 
-    public void createOrder(Order order) throws DAOException{
-        orderDao.save(order);
+    public void createOrder(Connection connection, Order order) throws DAOException{
+        orderDao.save(connection, order);
     }
 
     public void update(Order order) throws DAOException{

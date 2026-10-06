@@ -19,12 +19,11 @@ import java.util.List;
 public class OrderDAOImpl implements OrderDAO {
 
     @Override
-    public void save(Order order) throws DAOException {
+    public void save(Connection connection, Order order) throws DAOException {
         String sql = "INSERT INTO Orders (UserID, RestaurantID, OrderDate, TotalAmount, Status, PaymentMethod, Address) " +
                 "VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-        try (Connection conn = DBConnectionUtil.getConnection();
-             PreparedStatement ps = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
+        try (PreparedStatement ps = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS)) {
 
             ps.setInt(1, order.getUserId());
             ps.setInt(2, order.getRestaurantId());

@@ -5,6 +5,7 @@ import com.banti.fda.model.*;
 import com.banti.fda.service.OrderItemService;
 import com.banti.fda.service.OrderService;
 import com.banti.fda.service.UserService;
+import com.banti.fda.utility.DBConnectionUtil;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,6 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.time.LocalDateTime;
 
 @WebServlet("/order/place")
@@ -59,30 +62,40 @@ public class PlaceOrder extends HttpServlet {
         order.setPaymentMethod(PaymentMethod.CASH);
         order.setAddress(req.getParameter("address"));
 
+        Connection connection = null;
         try {
-            orderService.createOrder(order);
-        } catch (DAOException e) {
-            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error adding order");
+            connection = DBConnectionUtil.getConnection();
+            connection.setAutoCommit(false);
+            orderService.createOrder(connection, order);
+            for (CartItem cartItem : cart.getCartItemMap().values()) {
+                OrderItem orderItem = new OrderItem();
+
+                orderItem.setOrderId(order.getOrderId());
+                orderItem.setMenuId(cartItem.getMenu().getMenuId());
+                orderItem.setQuantity(cartItem.getQuantity());
+                orderItem.setItemTotal(cartItem.getSubtotal());
+                orderItemService.addOrderItem(connection, orderItem);
+            }
+            connection.commit();
+        } catch (Exception e) {
+            if (connection != null) {
+                try {
+                    connection.rollback();
+                } catch (SQLException ex) {
+                    ex.printStackTrace();
+                }
+            }
+            resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Failed to place order");
             return;
-        }
 
-        for(CartItem cartItem : cart.getCartItemMap().values()){
-            OrderItem orderItem = new OrderItem();
-
-            int menuId = cartItem.getMenu().getMenuId();
-            int quantity = cartItem.getQuantity();
-            BigDecimal itemTotal = cartItem.getSubtotal();
-
-            orderItem.setOrderId(order.getOrderId());
-            orderItem.setMenuId(menuId);
-            orderItem.setQuantity(quantity);
-            orderItem.setItemTotal(itemTotal);
-
-            try {
-                orderItemService.addOrderItem(orderItem);
-            } catch (DAOException e) {
-                resp.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Error in adding order items");
-                return;
+        } finally {
+            if (connection != null) {
+                try {
+                    connection.setAutoCommit(true);
+                    connection.close();
+                } catch (SQLException e) {
+                    e.printStackTrace();
+                }
             }
         }
 

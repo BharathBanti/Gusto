@@ -3,11 +3,12 @@ package com.banti.fda.dao;
 import com.banti.fda.exception.DAOException;
 import com.banti.fda.model.Order;
 
+import java.sql.Connection;
 import java.util.List;
 
 public interface OrderDAO {
 
-    void save(Order order) throws DAOException;
+    void save(Connection connection, Order order) throws DAOException;
 
     void update(Order order) throws DAOException;
 

@@ -16,7 +16,7 @@ RUN mkdir -p /usr/local/tomcat/webapps/ROOT && \
     echo '<% response.sendRedirect("/Gusto/"); %>' > /usr/local/tomcat/webapps/ROOT/index.jsp
 
 # Keep memory small enough for the free 512 MB instance
-ENV CATALINA_OPTS="-Xms64m -Xmx256m -XX:MaxMetaspaceSize=128m -XX:+UseSerialGC"
+ENV CATALINA_OPTS="-Xms64m -Xmx256m -XX:MaxMetaspaceSize=128m -XX:+UseSerialGC -Duser.timezone=Asia/Kolkata"
 
 EXPOSE 8080
 CMD ["catalina.sh", "run"]
